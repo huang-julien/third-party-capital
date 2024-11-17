@@ -89,14 +89,14 @@ export interface GoogleAnalyticsParams {
 }
 
 export interface GTag {
-  (fn: 'js', opt: Date): void;
-  (fn: 'config', opt: string): void;
+  (fn: 'js', opt: Date, opt2: never): void;
+  (fn: 'config', opt: string, opt2: never): void;
   (fn: 'event', opt: string, opt2?: { [key: string]: any }): void;
-  (fn: 'set', opt: { [key: string]: string }): void;
-  (fn: 'get', opt: string): void;
+  (fn: 'set', opt: { [key: string]: string }, opt2: never): void;
+  (fn: 'get', opt: string, opt2: never): void;
   (fn: 'consent', opt: 'default', opt2: { [key: string]: string }): void;
   (fn: 'consent', opt: 'update', opt2: { [key: string]: string }): void;
-  (fn: 'config', opt: 'reset'): void;
+  (fn: 'config', opt: 'reset', opt2: never): void;
 }
 
 export type DataLayer = Array<Parameters<GTag> | Record<string, unknown>>;
